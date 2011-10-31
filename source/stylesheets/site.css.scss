@@ -1,0 +1,213 @@
+@import "compass";
+@import "compass/layout/grid-background";
+@import "blueprint/grid";
+
+$link-color:         #0388a6;
+$link-hover-color:   #009ce0;
+$link-focus-color:   false;
+$link-active-color:  false;
+$link-visited-color: false;
+
+$font-color:  #333;
+$font-family: Arial;
+$base-font-size:   15px;
+$base-line-height: 18px;
+
+$total-cols: 24;
+$col-width: 30px;
+$gutter-width: 10px;
+$side-gutter-width: $gutter-width;
+
+@include global-reset;
+
+body {
+  font-family: $font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $font-color;
+}
+
+a {
+  @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color);
+}
+
+p {
+  margin-bottom: $base-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: $base-line-height * 2;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 { 
+  font-size: 24px; 
+}
+
+h3 { 
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.container {
+  @include container;
+}
+
+header[role="banner"] {
+  height: $base-line-height * 3;
+  width: 100%;
+  background: #222;
+  
+  .container {
+    height: $base-line-height * 3;
+  }
+  
+  h1 {
+    @include column(4);
+    margin-top: $base-line-height;
+    line-height: $base-line-height;
+    
+    a {
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+  
+  nav {
+    @include column(20, true);
+    margin-top: $base-line-height;
+    
+    ul li {
+      @include float-left;
+      margin-left: 20px;
+      
+      a {
+        color: #FFF;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+footer {
+  padding: $base-line-height 0;
+}
+
+#boast {
+  @include background-image(linear-gradient(#333, #404040));
+  color: #FFF;
+  @include single-text-shadow(#000, 0, 1px, 2px);
+}
+
+#pitch {
+  @include column(10);
+  margin: $base-line-height * 3 0;
+  
+  h1 {
+    font-size: 36px;
+    line-height: $base-line-height * 2;
+    margin-bottom: $base-line-height;
+  }
+  
+  p {
+    font-size: 20px;
+    margin-bottom: 0;
+    line-height: $base-line-height * 1.5;
+  }
+}
+
+#features {
+  background: #F2F2F2;
+  padding: $base-line-height 0 $base-line-height/2 0;
+  
+  ul {
+    @include clearfix;
+    
+    li {
+      @include column(8);
+      
+      &:last-child {
+        @include last;
+      }
+    }
+  }
+}
+
+#virtual_currency {
+  background: #000;
+  padding: $base-line-height * 2 0;
+  
+  header {
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      color: #FFF;
+      line-height: $base-line-height * 3;
+    }
+  }
+  
+  ul {
+    li {
+      @include column(6);
+    }
+  }
+}
+
+nav[role="toc"] {
+  @include column(6);
+  padding-bottom: $base-line-height * 4;
+  
+  h3 {
+    padding: $base-line-height 0;
+  }
+  
+  ul {
+    border-bottom: 1px solid #E6E6E6;
+    
+    li {
+      border-top: 1px solid #E6E6E6;
+      padding: 9px 18px;
+    }
+  }
+}
+
+article {
+  @include column(17, true);
+  @include prepend(1);
+  margin-top: $base-line-height * 2;
+
+  header {
+    margin-bottom: $base-line-height;
+    
+    p {
+      color: #CCC;
+      font-style: italic;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    
+    li {
+      margin-bottom: $base-line-height / 2;
+    }
+  }
+}
+
+
